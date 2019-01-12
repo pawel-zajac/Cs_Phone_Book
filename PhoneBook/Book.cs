@@ -41,7 +41,7 @@ namespace PhoneBook
                 switch (command)
                 {
                     case "HELP":
-                        //TODO
+                        Operations.Help();
                         break;
                     case "FIND":
                         //TODO
@@ -53,7 +53,7 @@ namespace PhoneBook
                         //TODO
                         break;
                     case "CLS":
-                        //TODO
+                        Operations.Cls();
                         break;
                     case "EXIT":
                         Operations.Exit();
