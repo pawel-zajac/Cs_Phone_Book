@@ -56,7 +56,7 @@ namespace PhoneBook
                         //TODO
                         break;
                     case "EXIT":
-                        //TODO
+                        Operations.Exit();
                         break;
                 }
             }

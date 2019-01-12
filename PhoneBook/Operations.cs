@@ -13,5 +13,10 @@ namespace PhoneBook
             contacts.Add(new Contact(name, number));
         }
 
+        public static void Exit ()
+        {
+            System.Environment.Exit(1);
+        }
+
     }
 }
