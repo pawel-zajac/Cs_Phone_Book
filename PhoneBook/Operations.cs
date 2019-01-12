@@ -14,7 +14,7 @@ namespace PhoneBook
         {
             foreach (Contact item in contacts)
             {
-                if (item.Name.Equals(name))
+                if (item.Name.ToUpper().Equals(name.ToUpper())) //Case insensitive
                 {
                     return item;
                 }
