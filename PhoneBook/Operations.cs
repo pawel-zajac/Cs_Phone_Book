@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhoneBook
 {
     static class Operations
     {
-        public static void Help ()
+        public static void Help()
         {
             UserInterface.PrintAvailableCommands();
         }
 
-        public static Contact Find (List<Contact> contacts, string name)
+        public static Contact Find(List<Contact> contacts, string name)
         {
             foreach (Contact item in contacts)
             {
@@ -25,12 +22,12 @@ namespace PhoneBook
             return null;
         }
 
-        public static void Add (List<Contact> contacts, string name, string number)
+        public static void Add(List<Contact> contacts, string name, string number)
         {
             contacts.Add(new Contact(name, number));
         }
 
-        public static void Delete (List<Contact> contacts, Contact contact)
+        public static void Delete(List<Contact> contacts, Contact contact)
         {
             contacts.Remove(contact);
         }
@@ -41,7 +38,7 @@ namespace PhoneBook
             Console.Clear();
         }
 
-        public static void Exit ()
+        public static void Exit()
         {
             System.Environment.Exit(1);
         }

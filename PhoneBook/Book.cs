@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhoneBook
 {
@@ -25,8 +22,6 @@ namespace PhoneBook
             {
                 ExecuteCommandIfValid(GetCommand());
             }
-            
-
         }
 
         private string GetCommand()
@@ -66,7 +61,7 @@ namespace PhoneBook
             }
         }
 
-        public void HandleFinding()
+        private void HandleFinding()
         {
             UserInterface.PrintEnterNameToFindMessage();
             string name = Console.ReadLine().Trim();
@@ -81,10 +76,23 @@ namespace PhoneBook
             }
         }
 
-        public void HandleAdding()
+        private void HandleAdding()
         {
             UserInterface.PrintEnterNameMessage();
             string name = Console.ReadLine().Trim();
+
+            if (!InputValidation.IsNameNotEmpty(name))
+            {
+                UserInterface.PrintEmptyNameMessage();
+                return;
+            }
+
+            if (!InputValidation.IsNameAvailable(this.contactList, name))
+            {
+                UserInterface.PrintUsedNameMessage();
+                return;
+            }
+
             UserInterface.PrintEnterNumberMessage();
             string number = Console.ReadLine().Trim();
 
@@ -98,7 +106,7 @@ namespace PhoneBook
             }
         }
 
-        public void HandleDeleting()
+        private void HandleDeleting()
         {
             UserInterface.PrintEnterNameToDeleteMessage();
             string name = Console.ReadLine().Trim();

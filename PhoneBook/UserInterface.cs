@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhoneBook
 {
@@ -28,6 +24,8 @@ namespace PhoneBook
         private static readonly string enterNameMessage = "Type the name:";
         private static readonly string enterNumberMessage = "Type the phone number:";
         private static readonly string addSuccessMessage = "A new person has been added to the book.";
+        private static readonly string emptyNameMessage = "Name cannot be empty.";
+        private static readonly string usedNameMessage = "This name is already used.";
         private static readonly string incorrectNumberMessage = "Incorrect phone number.";
 
         //DELETE feature strings
@@ -90,6 +88,20 @@ namespace PhoneBook
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(addSuccessMessage);
+            Console.ResetColor();
+        }
+
+        public static void PrintEmptyNameMessage()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(emptyNameMessage);
+            Console.ResetColor();
+        }
+
+        public static void PrintUsedNameMessage()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(usedNameMessage);
             Console.ResetColor();
         }
 

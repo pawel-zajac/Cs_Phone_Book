@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace PhoneBook
 {
@@ -24,6 +21,26 @@ namespace PhoneBook
                 default:
                     return false;
             }
+        }
+
+        //Outside of scope
+        public static bool IsNameNotEmpty(string name)
+        {
+            if (!String.IsNullOrEmpty(name))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        //Outside of scope
+        public static bool IsNameAvailable(List<Contact> contacts, string name)
+        {
+            if (Operations.Find(contacts, name) == null)
+            {
+                return true;
+            }
+            return false;
         }
 
         public static bool IsEnteredNumberValid(string number)
