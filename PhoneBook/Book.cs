@@ -44,7 +44,7 @@ namespace PhoneBook
                         Operations.Help();
                         break;
                     case "FIND":
-                        //TODO
+                        HandleFinding();
                         break;
                     case "ADD":
                         HandleAdding();
@@ -63,6 +63,21 @@ namespace PhoneBook
             else
             {
                 UserInterface.PrintIncorrectCommandMessage();
+            }
+        }
+
+        public void HandleFinding()
+        {
+            UserInterface.PrintEnterNameToFindMessage();
+            string name = Console.ReadLine().Trim();
+            Contact searchResult = Operations.Find(this.contactList, name);
+
+            if (searchResult != null)
+            {
+                UserInterface.PrintContact(searchResult);
+            } else
+            {
+                UserInterface.PrintNoRecordMessage();
             }
         }
 

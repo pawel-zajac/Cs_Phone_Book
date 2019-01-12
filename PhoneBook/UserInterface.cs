@@ -18,6 +18,10 @@ namespace PhoneBook
             "Type 'CLS' to clear screen\n\t" +
             "To exit at any time type 'EXIT' command\n";
         private static readonly string incorrectCommandMessage = "Incorrect command.For a list of available commands type 'HELP'.";
+        //FIND feature
+        private static readonly string enterNameToFindMessage = "Type the name of a contact you want to look up.";
+        private static readonly string noRecordMessage = "No such record exists in the book.";
+        
         //ADD feature
         private static readonly string enterNameMessage = "Type the name:";
         private static readonly string enterNumberMessage = "Type the phone number:";
@@ -41,7 +45,7 @@ namespace PhoneBook
 
         public static void PrintIncorrectCommandMessage()
         {
-            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(incorrectCommandMessage);
             Console.ResetColor();
         }
@@ -65,8 +69,27 @@ namespace PhoneBook
 
         public static void PrintIncorrectNumberMessage()
         {
-            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(incorrectNumberMessage);
+            Console.ResetColor();
+        }
+
+        public static void PrintEnterNameToFindMessage()
+        {
+            Console.WriteLine(enterNameToFindMessage);
+        }
+
+        public static void PrintContact(Contact contact)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Contact name:   {contact.Name}\nContact phone:  {contact.Number}");
+            Console.ResetColor();
+        }
+
+        public static void PrintNoRecordMessage()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(noRecordMessage);
             Console.ResetColor();
         }
 
