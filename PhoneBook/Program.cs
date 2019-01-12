@@ -10,10 +10,8 @@ namespace PhoneBook
     {
         static void Main(string[] args)
         {
-            UserInterface.PrintWelcomeMessage();
-            UserInterface.PrintAvailableCommands();
-
-
+            List<Contact> contactList = new List<Contact>();
+            new Book(contactList).StartPhoneBook();
         }
     }
 }

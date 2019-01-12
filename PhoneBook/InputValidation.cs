@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace PhoneBook
@@ -11,8 +12,7 @@ namespace PhoneBook
 
         public static bool IsCommandValid(string command)
         {
-            string formattedCommand = command.Trim().ToUpper();
-            switch (formattedCommand)
+            switch (command)
             {
                 case "HELP":
                 case "FIND":
@@ -24,6 +24,15 @@ namespace PhoneBook
                 default:
                     return false;
             }
+        }
+
+        public static bool IsEnteredNumberValid(string number)
+        {
+            if (!String.IsNullOrEmpty(number) && Regex.Match(number, "^[0-9]*$").Success)
+            {
+                return true;
+            }
+            return false;
         }
 
 
