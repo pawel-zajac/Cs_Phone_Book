@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contact.cs" />
+    <Compile Include="Book.cs" />
+    <Compile Include="Operations.cs" />
     <Compile Include="InputValidation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
