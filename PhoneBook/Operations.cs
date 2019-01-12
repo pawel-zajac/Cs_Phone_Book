@@ -25,10 +25,16 @@ namespace PhoneBook
             return null;
         }
 
-        public static void AddContact (List<Contact> contacts, string name, string number)
+        public static void Add (List<Contact> contacts, string name, string number)
         {
             contacts.Add(new Contact(name, number));
         }
+
+        public static void Delete (List<Contact> contacts, Contact contact)
+        {
+            contacts.Remove(contact);
+        }
+
 
         public static void Cls()
         {

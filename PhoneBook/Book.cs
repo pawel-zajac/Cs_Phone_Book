@@ -50,7 +50,7 @@ namespace PhoneBook
                         HandleAdding();
                         break;
                     case "DELETE":
-                        //TODO
+                        HandleDeleting();
                         break;
                     case "CLS":
                         Operations.Cls();
@@ -90,11 +90,28 @@ namespace PhoneBook
 
             if (InputValidation.IsEnteredNumberValid(number))
             {
-                Operations.AddContact(this.contactList, name, number);
+                Operations.Add(this.contactList, name, number);
                 UserInterface.PrintAddSuccessMessage();
             } else
             {
                 UserInterface.PrintIncorrectNumberMessage();
+            }
+        }
+
+        public void HandleDeleting()
+        {
+            UserInterface.PrintEnterNameToDeleteMessage();
+            string name = Console.ReadLine().Trim();
+            Contact searchResult = Operations.Find(this.contactList, name);
+
+            if (searchResult != null)
+            {
+                Operations.Delete(this.contactList, searchResult);
+                UserInterface.PrintDeleteSuccessMessage();
+            }
+            else
+            {
+                UserInterface.PrintNoRecordMessage();
             }
         }
     }
